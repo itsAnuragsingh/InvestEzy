@@ -5,15 +5,13 @@ import { useRouter } from "next/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
-import { ArrowUpRight, BarChart3, LineChart, RefreshCcw, TrendingUp, User } from "lucide-react"
+import { ArrowUpRight, BarChart3, LineChart, RefreshCcw, TrendingUp } from "lucide-react"
 import { DashboardHeader } from "@/components/dashboard-header"
 import { DashboardShell } from "@/components/dashboard-shell"
 import { PortfolioOverview } from "@/components/portfolio-overview"
 import { StockCard } from "@/components/stock-card"
 import { PlatformConnectCard } from "@/components/platform-connect-card"
 import { RecommendationCard } from "@/components/recommendation-card"
-import { useUser } from "@clerk/nextjs"
-
 
 
 
@@ -24,16 +22,15 @@ export default function DashboardPage() {
   const [recommendations, setRecommendations] = useState([])
   const [loading, setLoading] = useState(true)
 
-  const {user} =useUser()
   useEffect(() => {
     // Check if user is logged in
     const email = localStorage.getItem("userEmail")
-    if (!user) {
+    if (!email) {
       router.push("/login")
       return
     }
 
-    setUserEmail(user.emailAddresses[0].emailAddress)
+    setUserEmail(email)
 
     // Mark user as onboarded
     localStorage.setItem(`${email}_onboarded`, "true")
