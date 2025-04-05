@@ -22,7 +22,7 @@ export default function Home() {
           </div>
         </div>
       </header>
-      <main className="flex-1">
+      <main className="flex-1 pr-2">
         <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
@@ -43,9 +43,9 @@ export default function Home() {
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
-                  <Link href="/demo">
+                  <Link href="/new">
                     <Button size="lg" variant="outline">
-                      View Demo
+                      New to Investing?
                     </Button>
                   </Link>
                 </div>
