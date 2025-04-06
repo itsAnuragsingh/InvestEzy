@@ -5,13 +5,14 @@ import { useRouter } from "next/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
-import { ArrowUpRight, BarChart3, LineChart, RefreshCcw, TrendingUp } from "lucide-react"
+import { ArrowUpRight, BarChart3, Home, LineChart, RefreshCcw, TrendingUp } from "lucide-react"
 import { DashboardHeader } from "@/components/dashboard-header"
 import { DashboardShell } from "@/components/dashboard-shell"
 import { PortfolioOverview } from "@/components/portfolio-overview"
 import { StockCard } from "@/components/stock-card"
 import { PlatformConnectCard } from "@/components/platform-connect-card"
 import { RecommendationCard } from "@/components/recommendation-card"
+import Link from "next/link"
 
 
 
@@ -82,13 +83,17 @@ export default function DashboardPage() {
   return (
     <DashboardShell>
       <DashboardHeader heading="Investment Dashboard" text={userEmail ? `Welcome back, ${userEmail}` : "Loading..."}>
+        <Link href="/">
         <Button variant="outline" size="sm" className="h-8 gap-1">
-          <RefreshCcw className="h-3.5 w-3.5" />
-          <span>Refresh</span>
+          <Home className="h-3.5 w-3.5" />
+          <span>Home</span>
         </Button>
+        </Link>
+        
       </DashboardHeader>
-
+     
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total Investments</CardTitle>
