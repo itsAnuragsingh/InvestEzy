@@ -12,7 +12,7 @@ const MarketOverview = () => {
     const fetchMarketOverview = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost:5000/api/beginner/market-overview');
+        const response = await fetch('https://investezy-backend.onrender.com/api/beginner/market-overview');
         const data = await response.json();
         
         if (data.success) {

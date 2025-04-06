@@ -24,7 +24,7 @@ const StockRecommendations = ({ riskProfile }) => {
     setError(null);
 
     try {
-      let url = `http://localhost:5000/api/beginner/recommend?profile=${riskProfile}`;
+      let url = `https://investezy-backend.onrender.com/api/beginner/recommend?profile=${riskProfile}`;
       if (budgetAmount) {
         url += `&budget=${budgetAmount}`;
       }

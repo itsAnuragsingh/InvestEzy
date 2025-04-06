@@ -45,7 +45,7 @@ const InvestmentCalculator = () => {
         return: formData.return
       });
 
-      const response = await fetch(`http://localhost:5000/api/beginner/calculator?${queryParams}`);
+      const response = await fetch(`https://investezy-backend.onrender.com/api/beginner/calculator?${queryParams}`);
       const data = await response.json();
 
       if (data.success) {

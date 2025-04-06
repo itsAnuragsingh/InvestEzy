@@ -29,7 +29,7 @@ const RiskAssessment = ({ onProfileDetermined }) => {
     setError(null);
 
     try {
-      const response = await fetch('http://localhost:5000/api/beginner/assess', {
+      const response = await fetch('https://investezy-backend.onrender.com/api/beginner/assess', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -39,12 +39,12 @@ export default function DashboardPage() {
     // Fetch portfolio data
     const fetchPortfolio = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/portfolio/${email}`)
+        const response = await fetch(`https://investezy-backend.onrender.com/api/portfolio/${email}`)
         const data = await response.json()
         setPortfolio(data)
 
         // Fetch recommendations
-        const recResponse = await fetch(`http://localhost:5000/api/recommend/${email}`)
+        const recResponse = await fetch(`https://investezy-backend.onrender.com/api/recommend/${email}`)
         const recData = await recResponse.json()
         if (recData.success && recData.recommendations) {
           setRecommendations(recData.recommendations)

@@ -26,7 +26,7 @@ export default function StockSearch() {
     setError('');
     
     try {
-      const response = await fetch(`http://localhost:5000/api/stock/${searchTerm.trim()}`);
+      const response = await fetch(`https://investezy-backend.onrender.com/api/stock/${searchTerm.trim()}`);
       const data = await response.json();
       
       if (data.error) {

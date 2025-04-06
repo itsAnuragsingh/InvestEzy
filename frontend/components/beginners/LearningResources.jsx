@@ -13,7 +13,7 @@ const LearningResources = () => {
     const fetchLearningResources = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost:5000/api/beginner/learn');
+        const response = await fetch('https://investezy-backend.onrender.com/api/beginner/learn');
         const data = await response.json();
         
         if (data.success) {
