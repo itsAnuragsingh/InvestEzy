@@ -7,7 +7,14 @@ from services.stock_data import get_stock_data
 from models.recommendation import get_recommendations
 from services.demo_data import get_demo_portfolio
 from services.prediction import predict_stock
-
+from services.beginner_service import (
+    assess_risk_profile, 
+    get_beginner_recommendations, 
+    get_learning_resources,
+    get_market_overview,
+    get_investment_calculator,
+    get_beginner_glossary
+)
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all domains on all routes
 
@@ -93,6 +100,105 @@ def predict_price(ticker):
         traceback.print_exc()
         return jsonify({
             "error": f"Prediction failed: {str(e)}",
+            "success": False
+        }), 500
+
+# NEW ENDPOINTS FOR BEGINNERS
+# Add these routes to your app.py file
+
+@app.route('/api/beginner/market-overview', methods=['GET'])
+def market_overview():
+    """Get simple market overview for beginners"""
+    try:
+        overview = get_market_overview()
+        return jsonify(overview)
+    except Exception as e:
+        print(f"Error in market overview: {str(e)}")
+        traceback.print_exc()
+        return jsonify({
+            "error": f"Failed to get market overview: {str(e)}",
+            "success": False
+        }), 500
+
+@app.route('/api/beginner/calculator', methods=['GET'])
+def investment_calculator():
+    """Calculate potential investment growth"""
+    try:
+        amount = request.args.get('amount', 10000, type=float)
+        monthly = request.args.get('monthly', 0, type=float)
+        years = request.args.get('years', 5, type=int)
+        return_rate = request.args.get('return', 12, type=float)
+        
+        results = get_investment_calculator(amount, monthly, years, return_rate)
+        return jsonify(results)
+    except Exception as e:
+        print(f"Error in investment calculator: {str(e)}")
+        traceback.print_exc()
+        return jsonify({
+            "error": f"Calculation failed: {str(e)}",
+            "success": False
+        }), 500
+
+@app.route('/api/beginner/glossary', methods=['GET'])
+def beginner_glossary():
+    """Get glossary of stock market terms for beginners"""
+    try:
+        glossary = get_beginner_glossary()
+        return jsonify(glossary)
+    except Exception as e:
+        print(f"Error in glossary: {str(e)}")
+        traceback.print_exc()
+        return jsonify({
+            "error": f"Failed to get glossary: {str(e)}",
+            "success": False
+        }), 500
+
+@app.route('/api/beginner/assess', methods=['POST'])
+def assess_beginner():
+    """Assess a beginner's risk profile based on questionnaire"""
+    try:
+        data = request.json or {}
+        profile = assess_risk_profile(data)
+        return jsonify({
+            "success": True,
+            "profile": profile
+        })
+    except Exception as e:
+        print(f"Error in beginner assessment: {str(e)}")
+        traceback.print_exc()
+        return jsonify({
+            "error": f"Assessment failed: {str(e)}",
+            "success": False
+        }), 500
+
+@app.route('/api/beginner/recommend', methods=['GET'])
+def beginner_recommend():
+    """Get beginner-friendly stock recommendations"""
+    try:
+        risk_profile = request.args.get('profile', 'moderate')
+        budget = request.args.get('budget')
+        
+        recommendations = get_beginner_recommendations(risk_profile, budget)
+        return jsonify(recommendations)
+    except Exception as e:
+        print(f"Error in beginner recommendations: {str(e)}")
+        traceback.print_exc()
+        return jsonify({
+            "error": f"Recommendation failed: {str(e)}",
+            "success": False
+        }), 500
+
+@app.route('/api/beginner/learn', methods=['GET'])
+def beginner_learn():
+    """Get learning resources for beginners"""
+    try:
+        resources = get_learning_resources()
+        return jsonify(resources)
+    except Exception as e:
+        print(f"Error in learning resources: {str(e)}")
+        traceback.print_exc()
+        return jsonify({
+            "error": f"Failed to get resources: {str(e)}",
             "success": False
         }), 500
 

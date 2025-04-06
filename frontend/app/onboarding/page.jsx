@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { TrendingUp, ArrowRight, Check } from "lucide-react"
 import { Progress } from "@/components/ui/progress"
 import { PlatformConnectStep } from "@/components/platform-connect-step"
-import { useUser } from "@clerk/nextjs"
+
 
 export default function OnboardingPage() {
   const router = useRouter()
@@ -16,16 +16,16 @@ export default function OnboardingPage() {
   const [connectedPlatforms, setConnectedPlatforms] = useState([])
   const [loading, setLoading] = useState(false)
   const [userEmail, setUserEmail] = useState(null)
- const {user} = useUser()
+
   useEffect(() => {
     // Check if user is logged in
     const email = localStorage.getItem("userEmail")
-    if (!user) {
+    if (!email) {
       router.push("/login")
       return
     }
 
-    setUserEmail(user.emailAddresses[0].emailAddress)
+    setUserEmail(email)
   }, [router])
 
   const platforms = [

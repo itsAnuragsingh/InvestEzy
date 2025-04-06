@@ -1,6 +1,6 @@
 # Demo portfolios for the hackathon
 demo_portfolios = {
-    "user1@example.com": {
+    "itsanurag707@gmail.com": {
         "zerodha": ["TCS.NS", "INFY.NS", "HDFCBANK.NS"],
         "angel_one": ["RELIANCE.NS", "ICICIBANK.NS"],
         "mf_central": ["KOTAKBANK.NS", "SBIN.NS"]  # Replaced mutual funds with stocks for simplicity
