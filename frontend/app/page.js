@@ -83,7 +83,7 @@ export default function Home() {
   const [animatedValue, setAnimatedValue] = useState(0)
   const [chartVisible, setChartVisible] = useState(false)
   const [activeTestimonial, setActiveTestimonial] = useState(0)
-  const tickerRef = useRef<HTMLDivElement>(null)
+  const tickerRef = useRef(null)
 
   // Animate the portfolio value counter
   useEffect(() => {
