@@ -1,7 +1,6 @@
 "use client"
 
-import  React from "react"
-
+import React, { Suspense } from "react"
 import { useState, useEffect } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
@@ -15,9 +14,10 @@ import { DashboardShell } from "@/components/dashboard-shell"
 import { StockComparisonCard } from "@/components/stock-comparison-card"
 import { StockMetricComparison } from "@/components/stock-metric-comparison"
 
-export default function ComparePage() {
-  const router = useRouter()
+
+function ComparePageContent() {
   const searchParams = useSearchParams()
+  const router = useRouter()
   const [searchTerm, setSearchTerm] = useState("")
   const [loading, setLoading] = useState(false)
   const [comparisonData, setComparisonData] = useState(null)
@@ -316,3 +316,18 @@ export default function ComparePage() {
   )
 }
 
+// Main component with Suspense boundary
+export default function ComparePage() {
+  return (
+    <Suspense fallback={
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="flex flex-col items-center">
+          <Loader2 className="h-8 w-8 animate-spin text-emerald-500 mb-4" />
+          <p>Loading...</p>
+        </div>
+      </div>
+    }>
+      <ComparePageContent />
+    </Suspense>
+  )
+}
