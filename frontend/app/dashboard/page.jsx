@@ -13,6 +13,7 @@ import { StockCard } from "@/components/stock-card"
 import { PlatformConnectCard } from "@/components/platform-connect-card"
 import { RecommendationCard } from "@/components/recommendation-card"
 import { useUser } from "@clerk/nextjs"
+ import { useRouter } from ""
 
 
 
