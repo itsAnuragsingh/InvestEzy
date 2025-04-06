@@ -6,6 +6,7 @@ A smart investment portfolio manager focused on making stock investing accessibl
 ## Overview
 
 InvestEzy is a comprehensive platform designed to simplify stock investing for beginners in the Indian market. The application provides personalized stock recommendations, predictive analytics using LSTM neural networks, risk assessment, and educational resources to help users make informed investment decisions.
+Live Demo(For demo login, use this email :- user2@example.com) :- https://investezy.vercel.app/
 
 ## Features
 
