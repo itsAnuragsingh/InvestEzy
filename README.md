@@ -108,11 +108,16 @@ The system uses a trained LSTM neural network model to predict stock prices:
 - Risk and stability-based recommendations
 - Beginner-friendly explanations with emoji indicators
 
-## Screenshots
+## Pictures and Video
 ![WhatsApp Image 2025-04-06 at 11 45 53_7fb3d4c9](https://github.com/user-attachments/assets/e55dad49-3b36-4f7c-8a80-19b7f87066b4)
 ![WhatsApp Image 2025-04-06 at 11 45 55_1f714e21](https://github.com/user-attachments/assets/8117b437-765d-4c88-a62a-2c4b7bccd6a6)
 ![WhatsApp Image 2025-04-06 at 11 45 54_c1ddb9cb](https://github.com/user-attachments/assets/3063464b-ca88-4ac4-8b66-2d3d73e4a98f) 
 ![WhatsApp Image 2025-04-06 at 11 45 53_1dca08bb](https://github.com/user-attachments/assets/92ac93b5-7e0b-49dc-b2d0-80dcac94319f)
+
+
+https://github.com/user-attachments/assets/c337955b-f307-4b6b-b48f-a8a2c790588c
+
+
 
 
 ## Setup and Installation
